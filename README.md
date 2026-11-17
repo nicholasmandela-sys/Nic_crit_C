@@ -1,2 +1,11 @@
 # Nic_crit_C
-![](Screenshot 2026-11-09 113511.png)
+![](<Screenshot 2026-11-09 113511.png>)
+![](<Screenshot 2026-11-09 113548.png>)
+![](<Screenshot 2026-11-09 113608.png>)
+![](<Screenshot 2026-11-09 113548.png>)
+![](<behnam-norouzi-F4rWoM3cYjl-unsplash.jpg>)
+![](<gabre-cameron-KTVTHg2ofBY-unsplash.jpg>)
+![](<pexels-jddaniel-2385477.jpg>)
+![](<pexels-perfect-lens-15693844.jpg>)
+![](<taylor-smith-aDZ5YluedQg-unsplash.jpg>)
+![](<usama-akram-s-gYAbQToXk-unsplash.jpg>)
