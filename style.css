@@ -272,16 +272,69 @@ footer {
     color: #888888;
 }
 
-/* Desktop Responsiveness Breakpoint */
-@media (min-width: 768px) {
-    .product-grid {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+/* =========================================
+   PURE CSS VIEW MODE SWITCHER (MOBILE / LAPTOP)
+   ========================================= */
+.toggle-checkbox {
+    display: none;
+}
 
-    .product-card {
-        width: calc(33.333% - 14px);
-        min-width: 250px;
-    }
+.view-switch-bar {
+    background-color: #111111;
+    padding: 8px 15px;
+    text-align: center;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.toggle-label {
+    display: inline-block;
+    background-color: #222222;
+    color: #ffffff;
+    border: 1px solid #E50914;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.toggle-label:hover {
+    background-color: #E50914;
+}
+
+.to-mobile {
+    display: none;
+}
+
+/* When Toggle is Checked: Switch Button Text */
+#view-toggle:checked ~ .view-switch-bar .to-desktop {
+    display: none;
+}
+
+#view-toggle:checked ~ .view-switch-bar .to-mobile {
+    display: inline;
+}
+
+/* Default (Unchecked): Mobile Column View */
+#main-content {
+    max-width: 480px;
+    margin: 0 auto;
+    transition: max-width 0.3s ease;
+}
+
+/* Checked: Laptop Wide 3-Column Grid View */
+#view-toggle:checked ~ #main-content {
+    max-width: 1200px;
+}
+
+#view-toggle:checked ~ #main-content .product-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#view-toggle:checked ~ #main-content .product-card {
+    width: calc(33.333% - 14px);
+    min-width: 250px;
 }
