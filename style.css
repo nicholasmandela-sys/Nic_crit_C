@@ -3,7 +3,7 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Base Reset & Universal Box Sizing */
+/* Base Reset & Styling Setup */
 * {
     margin: 0;
     padding: 0;
@@ -11,64 +11,10 @@ html {
     font-family: 'Arial', sans-serif;
 }
 
-/* Outer Desktop Background & Base Centering */
 body {
-    background-color: #050505;
+    background-color: #141414;
     color: #ffffff;
     line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    padding: 0;
-}
-
-/* ==========================================================================
-   PURE CSS VIEW MODE SWITCHER (DESKTOP VS MOBILE TOGGLE)
-   ========================================================================== */
-.toggle-checkbox {
-    display: none; /* Hidden checkbox controller */
-}
-
-.view-switch-bar {
-    width: 100%;
-    background-color: #111111;
-    border-bottom: 1px solid #333333;
-    padding: 8px 15px;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 200;
-}
-
-.toggle-label {
-    display: inline-block;
-    background-color: #E50914;
-    color: #ffffff;
-    font-size: 0.85rem;
-    font-weight: bold;
-    padding: 6px 16px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-    box-shadow: 0 4px 10px rgba(229, 9, 20, 0.3);
-}
-
-.toggle-label:hover {
-    background-color: #b20710;
-    transform: scale(1.03);
-}
-
-.to-mobile {
-    display: none;
-}
-
-/* Default Mobile Mode Container Dimensions */
-main, header, footer {
-    width: 100%;
-    max-width: 430px; /* Simulated Mobile Viewport Width */
-    margin: 0 auto;
-    transition: max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Header & Sticky Navigation Bar */
@@ -78,9 +24,8 @@ header {
     padding: 15px;
     text-align: center;
     position: sticky;
-    top: 37px; /* Sits below the view switch bar */
+    top: 0;
     z-index: 100;
-    transition: border-radius 0.3s ease;
 }
 
 .logo h1 {
@@ -113,15 +58,6 @@ header {
     color: #E50914;
 }
 
-/* Main Mobile Frame Background */
-#main-content {
-    background-color: #141414;
-    min-height: 100vh;
-    border-left: 1px solid #222222;
-    border-right: 1px solid #222222;
-    transition: border 0.3s ease, box-shadow 0.3s ease;
-}
-
 /* Category Sections */
 .product-category {
     padding: 25px 15px;
@@ -136,12 +72,11 @@ header {
     letter-spacing: 0.5px;
 }
 
-/* Mobile Product Grid Layout (Single Column) */
+/* Product Container Layout */
 .product-grid {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    transition: flex-direction 0.3s ease;
 }
 
 /* Product Cards & Elevation Hover Effect */
@@ -150,7 +85,7 @@ header {
     border: 1px solid #333333;
     border-radius: 8px;
     padding: 15px;
-    transition: transform 0.2s ease, border-color 0.2s ease, width 0.3s ease;
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .product-card:hover {
@@ -209,12 +144,10 @@ header {
     gap: 8px;
 }
 
-/* Hide native browser radio buttons */
 .size-options input[type="radio"] {
     display: none;
 }
 
-/* Style standard HTML labels as clickable buttons */
 .size-options label {
     background-color: #333333;
     color: #ffffff;
@@ -230,7 +163,6 @@ header {
     border-color: #E50914;
 }
 
-/* Highlight active size button */
 .size-options input[type="radio"]:checked + label {
     background-color: #E50914;
     border-color: #E50914;
@@ -273,7 +205,6 @@ header {
     padding: 20px;
     border-radius: 8px;
     border: 1px solid #333333;
-    width: 100%;
     max-width: 420px;
     margin: 0 auto;
 }
@@ -315,7 +246,7 @@ header {
 
 .submit-mpesa-btn {
     width: 100%;
-    background-color: #00A859; /* M-Pesa Green */
+    background-color: #00A859;
     color: #ffffff;
     border: none;
     padding: 12px;
@@ -331,130 +262,6 @@ header {
     background-color: #008747;
 }
 
-/* M-Pesa App Transaction Receipt Modal */
-.mpesa-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(4px);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    padding: 20px;
-}
-
-/* Trigger Modal on Form Submit (#receipt) */
-.mpesa-modal-overlay:target {
-    display: flex;
-}
-
-.mpesa-card {
-    background-color: #1a1a1a;
-    border: 2px solid #00A859;
-    border-radius: 14px;
-    width: 100%;
-    max-width: 360px;
-    padding: 24px 20px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 168, 89, 0.2);
-    animation: slideUp 0.3s ease-out;
-}
-
-@keyframes slideUp {
-    from { transform: translateY(30px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-.success-icon {
-    width: 50px;
-    height: 50px;
-    background-color: #00A859;
-    color: #ffffff;
-    font-size: 1.8rem;
-    font-weight: bold;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 10px auto;
-}
-
-.mpesa-header h3 {
-    color: #00A859;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-}
-
-.status-subtitle {
-    font-size: 0.85rem;
-    color: #aaaaaa;
-    margin-bottom: 15px;
-}
-
-.receipt-details {
-    background-color: #111111;
-    border: 1px solid #333333;
-    border-radius: 8px;
-    padding: 12px;
-    margin: 15px 0;
-    text-align: left;
-}
-
-.receipt-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.85rem;
-    padding: 6px 0;
-    border-bottom: 1px solid #222222;
-}
-
-.receipt-row:last-child {
-    border-bottom: none;
-}
-
-.receipt-row span {
-    color: #888888;
-}
-
-.receipt-row strong {
-    color: #ffffff;
-}
-
-.status-pending {
-    color: #00A859 !important;
-}
-
-.mpesa-instruction {
-    background-color: #0a2918;
-    border-left: 3px solid #00A859;
-    padding: 10px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    color: #d1f2e0;
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.close-receipt-btn {
-    display: block;
-    width: 100%;
-    background-color: #00A859;
-    color: #ffffff;
-    text-decoration: none;
-    padding: 12px;
-    font-weight: bold;
-    border-radius: 6px;
-    transition: background-color 0.2s ease;
-}
-
-.close-receipt-btn:hover {
-    background-color: #008747;
-}
-
 /* Footer Section */
 footer {
     text-align: center;
@@ -465,86 +272,16 @@ footer {
     color: #888888;
 }
 
-/* ==========================================================================
-   DESKTOP PHONE FRAME PREVIEW MODE (MIN-WIDTH: 768PX)
-   ========================================================================== */
+/* Desktop Responsiveness Breakpoint */
 @media (min-width: 768px) {
-    body {
-        padding: 0 0 30px 0;
-        background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
+    .product-grid {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
-    #main-content {
-        border-left: 2px solid #333333;
-        border-right: 2px solid #333333;
-        box-shadow: 0 0 25px rgba(229, 9, 20, 0.15), 0 15px 35px rgba(0, 0, 0, 0.9);
+    .product-card {
+        width: calc(33.333% - 14px);
+        min-width: 250px;
     }
-
-    header {
-        border-radius: 0;
-        border-left: 2px solid #333333;
-        border-right: 2px solid #333333;
-    }
-
-    footer {
-        border-radius: 0 0 12px 12px;
-        border-left: 2px solid #333333;
-        border-right: 2px solid #333333;
-        border-bottom: 2px solid #333333;
-    }
-}
-
-/* ==========================================================================
-   LAPTOP VIEW STYLES (ACTIVATED WHEN CHECKBOX IS TOGGLED)
-   ========================================================================== */
-
-/* Toggle Button Icon Switch */
-.toggle-checkbox:checked ~ .view-switch-bar .to-desktop {
-    display: none;
-}
-
-.toggle-checkbox:checked ~ .view-switch-bar .to-mobile {
-    display: inline;
-}
-
-/* Expand Main Containers to Widescreen Laptop Width */
-.toggle-checkbox:checked ~ header,
-.toggle-checkbox:checked ~ #main-content,
-.toggle-checkbox:checked ~ footer {
-    max-width: 1140px;
-    border-left: none;
-    border-right: none;
-    box-shadow: none;
-}
-
-/* Laptop Header Layout */
-.toggle-checkbox:checked ~ header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 40px;
-    border-radius: 0;
-}
-
-.toggle-checkbox:checked ~ header .nav-menu ul {
-    margin-top: 0;
-    gap: 25px;
-}
-
-/* Multi-Column Product Grid for Laptop View */
-.toggle-checkbox:checked ~ #main-content .product-grid {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.toggle-checkbox:checked ~ #main-content .product-card {
-    width: calc(33.333% - 14px);
-    min-width: 260px;
-}
-
-/* Widescreen Order Form Layout */
-.toggle-checkbox:checked ~ #main-content .order-form {
-    max-width: 500px;
-    padding: 28px;
 }
