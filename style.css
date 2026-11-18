@@ -12,9 +12,56 @@ html {
 }
 
 body {
-    background-color: #141414;
+    background-color: #050505;
     color: #ffffff;
     line-height: 1.6;
+}
+
+/* =========================================
+   PURE CSS VIEW MODE SWITCHER (MOBILE / LAPTOP)
+   ========================================= */
+.toggle-checkbox {
+    display: none;
+}
+
+.view-switch-bar {
+    width: 100%;
+    background-color: #111111;
+    padding: 8px 15px;
+    text-align: center;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.toggle-label {
+    display: inline-block;
+    background-color: #222222;
+    color: #ffffff;
+    border: 1px solid #E50914;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.toggle-label:hover {
+    background-color: #E50914;
+    transform: scale(1.03);
+}
+
+.to-mobile {
+    display: none;
+}
+
+/* Default (Unchecked): Mobile Frame Width */
+header,
+#main-content,
+footer {
+    width: 100%;
+    max-width: 430px;
+    margin: 0 auto;
+    transition: max-width 0.35s ease;
 }
 
 /* Header & Sticky Navigation Bar */
@@ -56,6 +103,14 @@ header {
 
 .nav-menu a:hover {
     color: #E50914;
+}
+
+/* Main Content Area */
+#main-content {
+    background-color: #141414;
+    min-height: 100vh;
+    border-left: 1px solid #222222;
+    border-right: 1px solid #222222;
 }
 
 /* Category Sections */
@@ -229,7 +284,7 @@ header {
     font-size: 0.9rem;
 }
 
-.order-form input:focus, 
+.order-form input:focus,
 .order-form select:focus {
     border-color: #E50914;
     outline: none;
@@ -241,7 +296,7 @@ header {
     flex-direction: column;
     gap: 6px;
     font-size: 0.85rem;
-    color: #ccc;
+    color: #cccccc;
 }
 
 .submit-mpesa-btn {
@@ -273,41 +328,8 @@ footer {
 }
 
 /* =========================================
-   PURE CSS VIEW MODE SWITCHER (MOBILE / LAPTOP)
+   LAPTOP VIEW (WHEN TOGGLE IS CHECKED)
    ========================================= */
-.toggle-checkbox {
-    display: none;
-}
-
-.view-switch-bar {
-    background-color: #111111;
-    padding: 8px 15px;
-    text-align: center;
-    border-bottom: 1px solid #2a2a2a;
-}
-
-.toggle-label {
-    display: inline-block;
-    background-color: #222222;
-    color: #ffffff;
-    border: 1px solid #E50914;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.toggle-label:hover {
-    background-color: #E50914;
-}
-
-.to-mobile {
-    display: none;
-}
-
-/* When Toggle is Checked: Switch Button Text */
 #view-toggle:checked ~ .view-switch-bar .to-desktop {
     display: none;
 }
@@ -316,16 +338,22 @@ footer {
     display: inline;
 }
 
-/* Default (Unchecked): Mobile Column View */
-#main-content {
-    max-width: 480px;
-    margin: 0 auto;
-    transition: max-width 0.3s ease;
+#view-toggle:checked ~ header,
+#view-toggle:checked ~ #main-content,
+#view-toggle:checked ~ footer {
+    max-width: 1200px;
 }
 
-/* Checked: Laptop Wide 3-Column Grid View */
-#view-toggle:checked ~ #main-content {
-    max-width: 1200px;
+#view-toggle:checked ~ header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+}
+
+#view-toggle:checked ~ header .nav-menu ul {
+    margin-top: 0;
+    gap: 25px;
 }
 
 #view-toggle:checked ~ #main-content .product-grid {
@@ -342,6 +370,7 @@ footer {
 /* =========================================
    M-PESA APP TRANSACTION RECEIPT MODAL
    ========================================= */
+#receipt,
 .mpesa-modal-overlay {
     position: fixed;
     top: 0;
@@ -357,7 +386,7 @@ footer {
     padding: 20px;
 }
 
-/* Trigger Modal on Form Submit (#receipt) */
+#receipt:target,
 .mpesa-modal-overlay:target {
     display: flex;
 }
