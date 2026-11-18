@@ -338,3 +338,129 @@ footer {
     width: calc(33.333% - 14px);
     min-width: 250px;
 }
+
+/* =========================================
+   M-PESA APP TRANSACTION RECEIPT MODAL
+   ========================================= */
+.mpesa-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(4px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+/* Trigger Modal on Form Submit (#receipt) */
+.mpesa-modal-overlay:target {
+    display: flex;
+}
+
+.mpesa-card {
+    background-color: #1a1a1a;
+    border: 2px solid #00A859;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 360px;
+    padding: 24px 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 168, 89, 0.2);
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.success-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #00A859;
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px auto;
+}
+
+.mpesa-header h3 {
+    color: #00A859;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.status-subtitle {
+    font-size: 0.85rem;
+    color: #aaaaaa;
+    margin-bottom: 15px;
+}
+
+.receipt-details {
+    background-color: #111111;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 15px 0;
+    text-align: left;
+}
+
+.receipt-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    padding: 6px 0;
+    border-bottom: 1px solid #222222;
+}
+
+.receipt-row:last-child {
+    border-bottom: none;
+}
+
+.receipt-row span {
+    color: #888888;
+}
+
+.receipt-row strong {
+    color: #ffffff;
+}
+
+.status-pending {
+    color: #00A859 !important;
+}
+
+.mpesa-instruction {
+    background-color: #0a2918;
+    border-left: 3px solid #00A859;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: #d1f2e0;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.close-receipt-btn {
+    display: block;
+    width: 100%;
+    background-color: #00A859;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.close-receipt-btn:hover {
+    background-color: #008747;
+}
